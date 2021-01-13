@@ -1,13 +1,140 @@
+@font-face {
+  font-family: "Gilroy-Medium";
+  src: url("./assets/Radomir\ Tinkov\ -\ Gilroy-Medium.otf");
+}
+
+@font-face {
+  font-family: "Gilroy-Bold";
+  src: url("./assets/Radomir\ Tinkov\ -\ Gilroy-Bold.otf");
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: Helvetica, sans-serif;
+  font-size: 16;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  color: #2d3439;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.flex {
+  display: flex;
+}
+
+.center {
+  align-items: center;
+}
+
+.center {
+  align-items: center;
+}
+
+.bottom {
+  align-items: flex-end;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+#logo {
+  font-weight: bold;
+  padding: 0.2rem;
+  border-right: 1px solid #979797;
+  font-family: Gilroy-Bold;
+  font-size: 17px;
+}
+
+#product-roadmap-header {
+  font-size: 32px;
+  font-family: Gilroy-Medium;
+}
+
+#nav {
+  height: 48px;
+  border-bottom: 1px solid #979797;
+}
+
+.grow {
+  flex-grow: 1;
+}
+
+.tab {
+  color: #5e6266;
+  font-size: Gilroy-Medium;
+  margin-left: 12px;
+}
+
+.selected {
+  border-bottom: 1px solid blue;
+}
+
+#nav-secondary {
+  border-bottom: 1px solid #979797;
+  height: 86px;
+}
+
+#board {
+  background-color: #e4e6e8;
+  color: #5e6266;
+  min-height: calc(100vh - 86px - 48px - 2px - 16px);
+  padding: 16px 48px 0px 48px;
+}
+
+.side-nav-button {
+  background-color: #e4e6e8;
+  margin: 10px;
+  width: 154px;
+  border-radius: 10pxs;
+  height: 36px;
+  color: #5e6266;
+  padding-left: 10px;
+  border-radius: 10px;
+}
+
+.selectable:hover {
+  cursor: pointer;
+}
+
+.modal {
+  max-width: 400px;
+  box-shadow: 2px 2px black;
+  padding: 20px;
+  background-color: white;
+  height: fit-content;
+}
+
+.modal-header {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-description {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.modal-submit {
+  color: white;
+  background-color: #1973ba;
+  padding: 5px 20px 5px 20px;
+  border-radius: 5px;
+  float: right;
+}
+
+.shadow {
+  -moz-box-shadow: 0 0 3x rgb(162, 162, 162);
+  -webkit-box-shadow: 0 0 3px rgb(162, 162, 162);
+  box-shadow: 0 0 3px rgb(162, 162, 162);
+}
+
+.sample-drag-zone {
+  border: 2px dashed #E4E6E8;
+  height: 40px;
+  margin-bottom: 10px;
 }
