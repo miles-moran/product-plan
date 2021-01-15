@@ -190,4 +190,17 @@ code {
 .bars {
   margin-top: 5px;
   padding: 2px;
+  height: 100%;
+  width: 100%;
+}
+
+.barzone {
+  display: block;
+  width: 100%;
+  height: 40px;
+  border: 2px solid white;
+}
+
+.isOver {
+  border: 2px dashed #e4e6e8;
 }

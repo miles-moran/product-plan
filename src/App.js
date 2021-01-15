@@ -30,7 +30,7 @@ const App = () => {
   };
   const addBar = (i) => {
     const l = [...lanes];
-    l[i].bars.push({ title: "bar" });
+    l[i].bars.push({ title: "Roadmap item " + (l[i].bars.length + 1) });
     setLanes(l);
   };
   const handleSubmit = () => {
@@ -85,9 +85,7 @@ const App = () => {
           </div>
         </div>
       </DndProvider>
-      {modal && (
-                <Modal handleSubmit={handleSubmit} modal={modals[modal]} />
-              )}
+      {modal && <Modal handleSubmit={handleSubmit} modal={modals[modal]} />}
     </div>
   );
 };
