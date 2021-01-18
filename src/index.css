@@ -177,30 +177,30 @@ code {
   color: white;
   height: fit-content;
   padding: 5px;
-
 }
 
 .bar {
   background-color: #1973BA;
-  padding: 5px;
   color: white;
   border-radius: 5px;
+  width: 8.3%;
+  height: 20px;
+  display: inline-block;
+}
+
+.empty {
+  background-color: white;
 }
 
 .bars {
-  margin-top: 5px;
-  padding: 2px;
   height: 100%;
   width: 100%;
 }
 
 .barzone {
-  display: block;
-  width: 100%;
   height: 40px;
-  border: 2px solid white;
 }
 
 .isOver {
-  border: 2px dashed #e4e6e8;
+  outline: 2px dashed #e4e6e8;
 }

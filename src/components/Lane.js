@@ -3,13 +3,15 @@ export default ({ lane, addBar }) => {
   return (
     <div className="lane">
       <div className="lane-header">Lane</div>
-      <BarZone type={"BAR"} add={() => addBar(lane.id)}>
-        <div className="bars">
-          {lane.bars.map((bar) => (
-            <span className="bar">{bar.title}</span>
-          ))}
-        </div>
-      </BarZone>
+      <div className="bars">
+        {lane.bars.map((row, rowId) =>
+          row.map((bar, barId) => (
+            <BarZone type={"BAR"} add={() => addBar(lane.id, rowId, barId)}>
+              <span className={bar ? "bar" : "bar empty"}></span>
+            </BarZone>
+          ))
+        )}
+      </div>
     </div>
   );
 };

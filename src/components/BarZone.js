@@ -12,9 +12,9 @@ function DropZone({ children, type, add, index }) {
   });
 
   return (
-    <div ref={drop} className={isOver ? "isOver barzone": 'barzone'}>
+    <span ref={drop} className={isOver ? "isOver barzone": 'barzone'}>
       {children}
-    </div>
+    </span>
   );
 }
 

@@ -12,30 +12,81 @@ const App = () => {
     {
       title: "first",
       id: 0,
-      bars: [],
+      bars: [
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+        ],
+        [
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+          null,
+        ],
+      ],
     },
   ]);
+
   // useEffect(() => {
   //   setTimeout(() => setModal(1), 1000);
   // }, []);
+
   const addLane = () => {
     setLanes([
       ...lanes,
       {
-        title: "First",
+        title: "Array",
         id: lanes.length,
-        bars: [],
+        bars: [
+          [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+          ],
+        ],
       },
     ]);
   };
-  const addBar = (i) => {
+
+  const addBar = (laneId, rowId, barId) => {
     const l = [...lanes];
-    l[i].bars.push({ title: "Roadmap item " + (l[i].bars.length + 1) });
+    l[laneId].bars[rowId][barId] = {
+      title: "Roadmap item " + (l[laneId].bars.length + 1),
+    };
     setLanes(l);
   };
+
   const handleSubmit = () => {
     setModal(null);
   };
+
   return (
     <div>
       <div id="nav" className="flex">
