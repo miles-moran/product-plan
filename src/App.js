@@ -7,72 +7,24 @@ import DropZone from "./components/DropZone";
 import Lane from "./components/Lane";
 import { modals } from "./data/modals";
 const App = () => {
-  const [modal, setModal] = useState(null);
-  const [lanes, setLanes] = useState([
-    {
-      title: "first",
-      id: 0,
-      bars: [
-        [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-        ],
-        [
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-          null,
-        ],
-      ],
-    },
-  ]);
+  const [modalHistory, setModalHistory] = useState([]);
+  const [modalId, setModalId] = useState(null);
+  const [lanes, setLanes] = useState([]);
 
-  // useEffect(() => {
-  //   setTimeout(() => setModal(1), 1000);
-  // }, []);
+  //Initialize first modal
+  useEffect(() => {
+    setTimeout(() => revealModal(1), 1500);
+  }, []);
+
+  const generateNewLane = (laneId) => ({
+    id: laneId,
+    bars: [Array(12).fill(undefined), Array(12).fill(undefined)],
+  });
 
   const addLane = () => {
-    setLanes([
-      ...lanes,
-      {
-        title: "Array",
-        id: lanes.length,
-        bars: [
-          [
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-            null,
-          ],
-        ],
-      },
-    ]);
+    setLanes([...lanes, generateNewLane(lanes.length)]);
+    //Initialize second modal
+    revealModal(2);
   };
 
   const addBar = (laneId, rowId, barId) => {
@@ -81,14 +33,31 @@ const App = () => {
       title: "Roadmap item " + (l[laneId].bars.length + 1),
     };
     setLanes(l);
+    //initialize third modal
+    revealModal(3);
   };
 
-  const handleSubmit = () => {
-    setModal(null);
+  const revealModal = (id) => {
+    if (!modalHistory.includes(id)) {
+      setModalHistory([...modalHistory, id]);
+      setModalId(id);
+    }
+  };
+
+  const handleModalSubmit = () => {
+    setModalId(null);
   };
 
   return (
     <div>
+      {modalId && (
+        <div className="modal-container flex center">
+          <Modal
+            handleSubmit={handleModalSubmit}
+            modal={modals.find((modal) => modal.id === modalId)}
+          />
+        </div>
+      )}
       <div id="nav" className="flex">
         <div id="logo" className="flex center">
           Product Plan
@@ -119,15 +88,12 @@ const App = () => {
                 <div>Q3</div>
                 <div>Q4</div>
               </div>
-
-              {lanes.map((lane) => (
-                <Lane lane={lane} addBar={addBar} />
+              {lanes.map((lane, i) => (
+                <Lane key={i} lane={lane} addBar={addBar} />
               ))}
-
               <DropZone type={"LANE"} add={addLane} />
             </div>
           </div>
-
           <div>
             <div className="side-nav-container">
               <DragButton text={"Add lane"} type={"LANE"} />
@@ -136,7 +102,6 @@ const App = () => {
           </div>
         </div>
       </DndProvider>
-      {modal && <Modal handleSubmit={handleSubmit} modal={modals[modal]} />}
     </div>
   );
 };

@@ -6,7 +6,7 @@ export default ({ lane, addBar }) => {
       <div className="bars">
         {lane.bars.map((row, rowId) =>
           row.map((bar, barId) => (
-            <BarZone type={"BAR"} add={() => addBar(lane.id, rowId, barId)}>
+            <BarZone key={barId} type={"BAR"} add={() => addBar(lane.id, rowId, barId)}>
               <span className={bar ? "bar" : "bar empty"}></span>
             </BarZone>
           ))

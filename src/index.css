@@ -32,6 +32,7 @@ code {
 
 .center {
   align-items: center;
+  justify-content: center;
 }
 
 .bottom {
@@ -116,10 +117,7 @@ code {
   padding: 20px;
   background-color: white;
   height: fit-content;
-  position: fixed;
-  z-index: 2;
-  left: 0;
-  top: 0;
+  z-index: 100;
 }
 
 .modal-header {
@@ -203,4 +201,11 @@ code {
 
 .isOver {
   outline: 2px dashed #e4e6e8;
+}
+
+.modal-container {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
 }
