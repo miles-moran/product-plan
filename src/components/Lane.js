@@ -1,4 +1,4 @@
-import BarZone from "./BarZone";
+import BarDrop from "./BarDrop";
 export default ({ lane, addBar }) => {
   return (
     <div className="lane">
@@ -6,9 +6,9 @@ export default ({ lane, addBar }) => {
       <div className="bars">
         {lane.bars.map((row, rowId) =>
           row.map((bar, barId) => (
-            <BarZone key={barId} type={"BAR"} add={() => addBar(lane.id, rowId, barId)}>
+            <BarDrop key={barId} type={"BAR"} add={() => addBar(lane.id, rowId, barId)}>
               <span className={bar ? "bar" : "bar empty"}></span>
-            </BarZone>
+            </BarDrop>
           ))
         )}
       </div>

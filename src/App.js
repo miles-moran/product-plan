@@ -2,10 +2,11 @@ import Modal from "./components/Modal";
 import { useState, useEffect } from "react";
 import { DndProvider } from "react-dnd";
 import { HTML5Backend } from "react-dnd-html5-backend";
-import DragButton from "./components/DragButton";
-import DropZone from "./components/DropZone";
+import AddButton from "./components/AddButton";
+import LaneDrop from "./components/LaneDrop";
 import Lane from "./components/Lane";
 import { modals } from "./data/modals";
+
 const App = () => {
   const [modalHistory, setModalHistory] = useState([]);
   const [modalId, setModalId] = useState(null);
@@ -13,7 +14,7 @@ const App = () => {
 
   //Initialize first modal
   useEffect(() => {
-    setTimeout(() => revealModal(1), 1500);
+    setTimeout(() => revealModal(1), 1000);
   }, []);
 
   const generateNewLane = (laneId) => ({
@@ -91,13 +92,13 @@ const App = () => {
               {lanes.map((lane, i) => (
                 <Lane key={i} lane={lane} addBar={addBar} />
               ))}
-              <DropZone type={"LANE"} add={addLane} />
+              <LaneDrop addLane={addLane} />
             </div>
           </div>
           <div>
             <div className="side-nav-container">
-              <DragButton text={"Add lane"} type={"LANE"} />
-              <DragButton text={"Add bar"} type={"BAR"} />
+              <AddButton text={"Add lane"} type={"LANE"} />
+              <AddButton text={"Add bar"} type={"BAR"} />
             </div>
           </div>
         </div>

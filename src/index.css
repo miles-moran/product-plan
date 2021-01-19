@@ -209,3 +209,12 @@ code {
   position: fixed;
   z-index: 100;
 }
+
+.lane-drop {
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+  background-color: white;
+  border: 2px dashed #e4e6e8;
+  border-radius: 5px;
+}
